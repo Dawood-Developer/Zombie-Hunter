@@ -46,7 +46,7 @@ public class AudioManager : MonoBehaviour
                 audioSource.Play();
             Prefs.SoundToggle = 0;
         }
-        else
+        else 
         {
             audioSource.Pause();
             UiManager.Instance.SetSoundActive(false);

@@ -23,7 +23,7 @@ public class UiManager : MonoBehaviour
         }
     }
     #endregion
-
+     
     [SerializeField] Text BulletCountTxt;
     [SerializeField] Text healthBar;
     [SerializeField] Text waveNumberTxt;

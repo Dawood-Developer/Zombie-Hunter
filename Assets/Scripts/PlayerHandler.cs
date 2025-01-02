@@ -10,7 +10,7 @@ public class PlayerHandler : MonoBehaviour
 
     [SerializeField] GameObject[] models;
     [SerializeField] GameObject activeModel;
-    
+     
     private float currentHealth;
     private Vector3 startPosition;
     private Quaternion startRotation;

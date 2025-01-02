@@ -7,7 +7,7 @@ public class Zombie : MonoBehaviour
     public float damage;
     public float health;
     public float speed;
-
+     
     [SerializeField] AudioClip[] zombieGrowl;
     [SerializeField] AudioClip bulletHitSound;
 

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
-
+     
     BoxCollider mapCollider;
 
     public PlayerHandler player;

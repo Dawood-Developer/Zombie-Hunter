@@ -39,7 +39,7 @@ namespace LeaderboardCreatorDemo
                 }
             });
         }
-
+         
         private void SubmitNameAndUploadScore()
         {
             string username = Prefs.PlayerName; // Current player ka username
