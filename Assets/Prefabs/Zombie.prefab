@@ -53,6 +53,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -150,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   health: 100
-  speed: 2
+  speed: 1
   zombieGrowl:
   - {fileID: 8300000, guid: 69c555b0e9a7bf84ea81a7526aea0834, type: 3}
   - {fileID: 8300000, guid: be9a5eb428bbdca408b82533a52a048d, type: 3}
@@ -168,6 +171,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

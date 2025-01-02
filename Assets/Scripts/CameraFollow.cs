@@ -8,6 +8,9 @@ public class CameraFollow : MonoBehaviour
     [Range(0.01f, 0.1f)] [SerializeField] float followDelay;
      Transform objectToFollow;
 
+    [SerializeField] float xOffset;
+    [SerializeField] float yOffset;
+
     private void Start()
     {
         Init();
@@ -34,8 +37,8 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 GetClampedPosition(Vector3 originalPosition)
     {
-        float clampedX = Mathf.Clamp(originalPosition.x, -16, 16);
-        float clampedZ = Mathf.Clamp(originalPosition.z, -20f, 20f);
+        float clampedX = Mathf.Clamp(originalPosition.x, -xOffset, xOffset);
+        float clampedZ = Mathf.Clamp(originalPosition.z, -yOffset, yOffset);
         return new Vector3(clampedX, originalPosition.y, clampedZ); 
     }
 
