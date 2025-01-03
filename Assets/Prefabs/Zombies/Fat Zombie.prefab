@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944706063987882454}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8981626690901851752}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &3552122448219203197
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 8981626690901851752}
   - component: {fileID: 5048401140185223555}
   - component: {fileID: 3545875316618604256}
-  - component: {fileID: 8279215753139425226}
   - component: {fileID: 6541635646355848417}
   - component: {fileID: 5250743690055219871}
+  - component: {fileID: -3589884939363910661}
   m_Layer: 0
   m_Name: Fat Zombie
   m_TagString: Untagged
@@ -200,33 +200,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.37
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8279215753139425226
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7324091369222437068}
-  serializedVersion: 4
-  m_Mass: 500
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 0
 --- !u!114 &6541635646355848417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,15 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075a4f0e89f8ee34680e6a0b84749583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHealth: 100
-  maxHealth: 250
   minDamage: 10
   maxDamage: 12
+  minHealth: 100
+  maxHealth: 250
   minSpeed: 0.2
   maxSpeed: 0.5
-  damage: 17
-  health: 250
-  speed: 0.5
   zombieGrowl:
   - {fileID: 8300000, guid: 69c555b0e9a7bf84ea81a7526aea0834, type: 3}
   - {fileID: 8300000, guid: be9a5eb428bbdca408b82533a52a048d, type: 3}
@@ -351,3 +321,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &-3589884939363910661
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7324091369222437068}
+  serializedVersion: 4
+  m_Mass: 500
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 1

@@ -39,10 +39,10 @@ namespace LeaderboardCreatorDemo
                 }
             });
         }
-         
+
         private void SubmitNameAndUploadScore()
         {
-            string username = Prefs.PlayerName; 
+            string username = Prefs.PlayerName;
             int newScore = Prefs.TotalZombiesKilled;
 
             Leaderboards.ZombieHunter.GetEntries(entries =>
@@ -53,23 +53,22 @@ namespace LeaderboardCreatorDemo
                     Score = entry.Score
                 }).ToList();
 
+                // Check if the username is already taken
                 var existingEntry = updatedEntries.FirstOrDefault(e => e.Username == username);
 
                 if (existingEntry != null)
                 {
-                    if (newScore > existingEntry.Score)
-                    {
-                        existingEntry.Score = newScore;
-                    }
+                    Debug.Log("Username already taken");
+                    // Optionally, you can prevent the upload or ask for a different name.
+                    return; // Exit the function early if the username is already taken
                 }
-                else
+
+                // If the username is not taken, proceed with adding the new entry
+                updatedEntries.Add(new TemporaryEntry
                 {
-                    updatedEntries.Add(new TemporaryEntry
-                    {
-                        Username = username,
-                        Score = newScore
-                    });
-                }
+                    Username = username,
+                    Score = newScore
+                });
 
                 updatedEntries = updatedEntries.OrderByDescending(e => e.Score).ToList();
 
@@ -88,6 +87,7 @@ namespace LeaderboardCreatorDemo
                 });
             });
         }
+
 
 
         private void LoadUpdatedEntriesToUI(List<TemporaryEntry> updatedEntries)

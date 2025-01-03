@@ -37,7 +37,7 @@ public class Gun : MonoBehaviour
         Init();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
         {
             Reload();
         }
-    }
+    }*/
 
     public void Init() 
     {

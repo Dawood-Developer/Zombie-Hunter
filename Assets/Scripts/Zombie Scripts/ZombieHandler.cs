@@ -173,7 +173,7 @@ public class ZombieHandler : MonoBehaviour
         Zombie zombie = Instantiate(selectedZombie.zombiePrefab, spawnPosition, Quaternion.identity, zombieParentGO).GetComponent<Zombie>();
 
         zombie.UpgradeMe(waveIndex);
-        zombie.transform.rotation = Quaternion.Euler(90, 0, 0);
+        //zombie.transform.rotation = Quaternion.Euler(90, 0, 0);
         zombie.target = player;
     }
     private ZombieVariant GetRandomZombieVariant(int currentWaveIndex)

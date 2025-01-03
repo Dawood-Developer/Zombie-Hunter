@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Range(0.01f, 0.1f)][SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed;
     [SerializeField] VariableJoystick joystick;
 
     private void Update()
@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        float horizontal = joystick.Horizontal + Input.GetAxis("Horizontal");
-        float vertical = joystick.Vertical + Input.GetAxis("Vertical");
+        float horizontal = joystick.Horizontal * Time.deltaTime/* + Input.GetAxis("Horizontal")*/;
+        float vertical = joystick.Vertical * Time.deltaTime /*+ Input.GetAxis("Vertical")*/;
 
         Vector3 direction = Vector3.right * horizontal * moveSpeed  + Vector3.forward * vertical * moveSpeed;
         transform.position += direction;

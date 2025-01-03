@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerHandler : MonoBehaviour
 {
     public Gun gun;
-
     [SerializeField] float maxHealth;
 
     [SerializeField] GameObject[] models;
@@ -24,7 +23,7 @@ public class PlayerHandler : MonoBehaviour
     public void ChangeHealthStatus(float damage)
     {
         currentHealth += damage;
-        UiManager.Instance.UpdateHealthBar(currentHealth.ToString());
+        UiManager.Instance.UpdateHealthBar(((int)currentHealth).ToString());
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -37,7 +36,7 @@ public class PlayerHandler : MonoBehaviour
     {
         currentHealth = maxHealth;
         gun.ResetMyBulletsForFirstWave();
-        UiManager.Instance.UpdateHealthBar(currentHealth.ToString());
+        UiManager.Instance.UpdateHealthBar(((int)currentHealth).ToString());
     }
     public void ChangeMyModel(int i)
     {

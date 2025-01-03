@@ -63,7 +63,7 @@ public class Zombie : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
             Vector3 direction = target.transform.position - transform.position; 
             Quaternion targetRotation = Quaternion.LookRotation(direction); 
-            transform.rotation = Quaternion.Euler(90f, targetRotation.eulerAngles.y, 0f);
+            transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
         }
         else
         {

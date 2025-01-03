@@ -1,10 +1,13 @@
+using Dan.Main;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Dan.Models;
 
 public class UiManager : MonoBehaviour
 {
@@ -42,8 +45,9 @@ public class UiManager : MonoBehaviour
 
     [Header("Player Name")]
     [SerializeField] GameObject EnterNameGO;
-    [SerializeField] TextMeshProUGUI InputPlayerNameTxt;
+    [SerializeField] TMP_InputField InputPlayerNameTxt;
     [SerializeField] Text playerNameTxt;
+    [SerializeField] Text onValueChangeTxt;
 
     [Header("Canvas")]
     [SerializeField] GameObject mainMenuCanvas;
@@ -186,11 +190,49 @@ public class UiManager : MonoBehaviour
     {
         if (InputPlayerNameTxt.text.Length > 0)
         {
-            Prefs.PlayerName = InputPlayerNameTxt.text;
-            playerNameTxt.text = Prefs.PlayerName;
-            EnterNameGO.SetActive(false);
+            string username = InputPlayerNameTxt.text;
+
+            Leaderboards.ZombieHunter.GetEntries(entries =>
+            {
+                var existingEntry = entries.FirstOrDefault(e => e.Username == username);
+
+                if (EqualityComparer<Entry>.Default.Equals(existingEntry, default(Entry)))
+                {
+                    Prefs.PlayerName = username;
+                    playerNameTxt.text = Prefs.PlayerName;
+                    EnterNameGO.SetActive(false);
+                }
+                else
+                {
+                    InputPlayerNameTxt.text = "Username already taken";
+                    Debug.Log("Username already taken");
+                }
+            });
         }
     }
+
+    public void OnValueChangeInName()
+    {
+        string username = InputPlayerNameTxt.text;
+
+        Leaderboards.ZombieHunter.GetEntries(entries =>
+        {
+            var existingEntry = entries.FirstOrDefault(e => e.Username == username);
+
+            if (EqualityComparer<Entry>.Default.Equals(existingEntry, default(Entry)))
+            {
+                onValueChangeTxt.text = "Username available!";
+                onValueChangeTxt.color = Color.green; 
+            }
+            else
+            {
+                // Username already exists
+                onValueChangeTxt.text = "Username already taken!";
+                onValueChangeTxt.color = Color.red;
+            }
+        });
+    }
+
     public void SwitchCanvas(int i)
     {
         switch (i)

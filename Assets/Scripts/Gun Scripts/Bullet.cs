@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Zombie zombie = other.GetComponent<Zombie>();
         if (zombie != null)
@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
 
             BloodDirection(transform.forward, blood);
             blood.transform.parent = zombie.transform;
+            Destroy(blood,.5f);
             Destroy(gameObject);
         }
     }
