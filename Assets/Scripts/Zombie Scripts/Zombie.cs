@@ -45,14 +45,14 @@ public class Zombie : MonoBehaviour
             MoveTowardPlayer(target);
         if (!audioSource.isPlaying)
         {
-            audioSource.Stop();
-            PlayRandomGrowl();
+            PlayThisAudio(zombieGrowl[Random.Range(0, zombieGrowl.Length)]);
         }
     }
 
-    public void PlayRandomGrowl()
+    public void PlayThisAudio(AudioClip audio)
     {
-        audioSource.clip = zombieGrowl[Random.Range(0, zombieGrowl.Length)];
+        audioSource.Stop();
+        audioSource.clip = audio;
         audioSource.Play();
     }
 
@@ -98,6 +98,13 @@ public class Zombie : MonoBehaviour
         zombieHandler.zombiesKilledInCurrentGame++;
         Prefs.TotalZombiesKilled++;
         Destroy(gameObject);
+    }
+
+    public void OnBulletHit()
+    {
+        audioSource.volume = 1;
+        PlayThisAudio(bulletHitSound);
+        audioSource.volume = Random.Range(0.1f, 0.5f);
     }
 
     public void UpgradeMe(int wave)
