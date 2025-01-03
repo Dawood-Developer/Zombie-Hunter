@@ -3576,7 +3576,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
 --- !u!114 &718982040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7476,7 +7476,7 @@ MonoBehaviour:
   fireRate: 0.22
   bullet: {fileID: -4606862965112616378, guid: ca9dc3d8698ee154dbce00f72ccc8cbf, type: 3}
   firePoint: {fileID: 2043152769}
-  bulletDamage: 50
+  bulletDamage: 100
   bulletSpeed: 25
   bulletShotSound: {fileID: 8300000, guid: 7a32f32936c249c4bb5cd37d2e48af03, type: 3}
   reloadSound: {fileID: 8300000, guid: ce38c139c2e091641afeb06de2d810b3, type: 3}
@@ -9334,14 +9334,23 @@ MonoBehaviour:
   zombieVariants:
   - zombiePrefab: {fileID: 7443571021626273564, guid: 6d72dcf07fb9fe74cbfeb72741653a0b, type: 3}
     spawnWaveIndex: 1
-    spawnChance: 50
+    spawnChance: 40
   - zombiePrefab: {fileID: 6457336026283205508, guid: 42109d7ab2a71184ea3be86d92fa0735, type: 3}
     spawnWaveIndex: 2
-    spawnChance: 50
+    spawnChance: 20
+  - zombiePrefab: {fileID: 7324091369222437068, guid: 5dc6196c4b88be84ab4b84f2010dd2c8, type: 3}
+    spawnWaveIndex: 3
+    spawnChance: 20
+  - zombiePrefab: {fileID: 1219866922265210740, guid: 0bc6e9e19b58e7245a1345e6f838eec2, type: 3}
+    spawnWaveIndex: 4
+    spawnChance: 10
+  - zombiePrefab: {fileID: 5136958993680947814, guid: d13537ceb4149d34d9c11002dc0118f4, type: 3}
+    spawnWaveIndex: 5
+    spawnChance: 10
   normalZombies: {fileID: 6783716569315343120, guid: 6d72dcf07fb9fe74cbfeb72741653a0b, type: 3}
   waveIndex: 1
-  waveTime: 5
-  waveZombies: 10
+  waveTime: 30
+  waveZombies: 60
   zombiesKilledInCurrentGame: 0
   zombiesKilled: 0
   isGameStart: 0

@@ -42,12 +42,11 @@ namespace LeaderboardCreatorDemo
          
         private void SubmitNameAndUploadScore()
         {
-            string username = Prefs.PlayerName; // Current player ka username
-            int newScore = Prefs.TotalZombiesKilled; // Current player ka score
+            string username = Prefs.PlayerName; 
+            int newScore = Prefs.TotalZombiesKilled;
 
             Leaderboards.ZombieHunter.GetEntries(entries =>
             {
-                // Convert existing leaderboard entries into a list
                 var updatedEntries = entries.Select(entry => new TemporaryEntry
                 {
                     Username = entry.Username,

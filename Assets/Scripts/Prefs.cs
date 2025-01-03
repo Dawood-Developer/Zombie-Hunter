@@ -24,4 +24,9 @@ public class Prefs : MonoBehaviour
         get => PlayerPrefs.GetString(nameof(PlayerName), "");
         set => PlayerPrefs.SetString(nameof(PlayerName), value);
     }
+    public static int PlayerID
+    {
+        get => PlayerPrefs.GetInt(nameof(PlayerID), 0);
+        set => PlayerPrefs.SetInt(nameof(PlayerID), value);
+    }
 }

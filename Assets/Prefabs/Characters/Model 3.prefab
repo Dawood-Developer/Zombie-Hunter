@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ce38c139c2e091641afeb06de2d810b3, type: 3}
     - target: {fileID: 7480618020291966662, guid: 3445c9aed566c014ca11ae96b73dd4f8, type: 3}
       propertyPath: bulletDamage
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7480618020291966662, guid: 3445c9aed566c014ca11ae96b73dd4f8, type: 3}
       propertyPath: totalBullets

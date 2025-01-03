@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
-    public float damage;
-    public float health;
-    public float speed;
+    [SerializeField]float minDamage;
+    [SerializeField]float maxDamage;
+    [SerializeField]float minHealth;
+    [SerializeField]float maxHealth;
+    [SerializeField]float minSpeed;
+    [SerializeField]float maxSpeed;
+
+    float damage;
+    float health;
+    float speed;
      
     [SerializeField] AudioClip[] zombieGrowl;
     [SerializeField] AudioClip bulletHitSound;
@@ -28,6 +35,9 @@ public class Zombie : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
         audioSource.volume = Random.Range(0.1f, 0.5f);
+        damage = Random.Range(minSpeed, maxSpeed);
+        health = Random.Range(minHealth, maxHealth);
+        speed = Random.Range(minSpeed, maxSpeed);
     }
     private void Update()
     {

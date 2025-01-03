@@ -66,6 +66,7 @@ public class UiManager : MonoBehaviour
         player = GameManager.Instance.player;
         if (Prefs.NameInit == 0)
         {
+            Prefs.PlayerID = GenerateRandomID();
             EnterNameGO.SetActive(true);
             Prefs.NameInit = 1;
         }
@@ -203,5 +204,11 @@ public class UiManager : MonoBehaviour
                 gameCanvas.SetActive(true);
                 break;
         }
+    }
+    public int GenerateRandomID()
+    {
+        System.Random random = new System.Random();
+        int randomID = random.Next(1000000000, int.MaxValue);
+        return randomID;
     }
 }
